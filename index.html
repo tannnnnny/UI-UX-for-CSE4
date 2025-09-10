@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Music UI Elements with Descriptions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff8e1;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d2752e;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .section {
+            background-color: #fff9ed;
+            border: 2px dashed orange;
+            border-radius: 8px;
+            padding: 15px;
+            width: 60%;
+        }
+
+        .description {
+            width: 35%;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-left: 3px solid #d2752e;
+            font-size: 0.95em;
+            line-height: 1.5em;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .tabs button {
+            flex: 1;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            background-color: #eee;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .tabs button.active {
+            background-color: #d2752e;
+            color: white;
+        }
+
+        .tab-content {
+            padding: 15px;
+            border-radius: 0 0 8px 8px;
+            background-color: #fff4db;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+            color: red;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 180px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px;
+            border-radius: 6px;
+
+            position: absolute;
+            z-index: 1;
+            top: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #bc7138;
+            color: white;
+        }
+
+        input[type="text"],
+        select,
+        input[type="email"] {
+            padding: 5px;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #d2752e;
+        }
+
+        button.ui-button {
+            padding: 10px 20px;
+            background-color: #767247;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button.ui-button:hover {
+            background-color: #6b542b;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>UI Elements with Descriptions</h1>
+
+    <div class="container">
+
+        <!-- 1. Radiobutton -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>1. Radio Buttons</h2>
+                <label><input type="radio" name="genre" value="rock"> Rock</label>
+                <label><input type="radio" name="genre" value="jazz"> Jazz</label>
+                <label><input type="radio" name="genre" value="classical"> Classical</label>
+            </div>
+            <div class="description">
+                Radio buttons allow users to select only one option from a group of mutually exclusive choices.
+                For example, selecting a music genre ensures that only Rock, Jazz, or Classical can be chosen at a time.
+            </div>
+        </div>
+
+        <!-- 2. Checkbox -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>2. Checkbox</h2>
+                <label><input type="checkbox"> I agree to receive music news</label>
+                <label><input type="checkbox"> Subscribe to concert updates</label>
+            </div>
+            <div class="description">
+                Checkboxes allow multiple selections. Users can choose to receive music news, concert updates, or both.
+                Each option is independent.
+            </div>
+        </div>
+
+        <!-- 3. Text input -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>3. Text Input</h2>
+                <label for="username">Enter your name:</label>
+                <input type="text" id="username" placeholder="Your name">
+            </div>
+            <div class="description">
+                Text input fields allow users to type in information such as names or emails. They are flexible for
+                any user-provided data.
+            </div>
+        </div>
+
+        <!-- 4. Tabs -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>4. Tabs</h2>
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="tab1">Rock</button>
+                    <button class="tab-button" data-tab="tab2">Jazz</button>
+                    <button class="tab-button" data-tab="tab3">Classical</button>
+                </div>
+                <div id="tab1" class="tab-content active">
+                    <p>Rock is energetic music with guitars and drums. It emphasizes rhythm and strong beats, often
+                        associated with live performances and expressive vocals.</p>
+                </div>
+                <div id="tab2" class="tab-content">
+                    <p>Jazz is all about improvisation and freedom of expression. Musicians often play spontaneous
+                        melodies, creating a dynamic and interactive musical experience.</p>
+                </div>
+                <div id="tab3" class="tab-content">
+                    <p>Classical music focuses on elegance, harmony, and structured compositions. It spans centuries of
+                        history and includes orchestral, chamber, and solo performances.</p>
+                </div>
+            </div>
+            <div class="description">
+                Tabs organize content into different sections that are easy to navigate. Only one section is visible
+                at a time, helping to reduce clutter and focus on the chosen topic.
+            </div>
+        </div>
+        <!-- 5. Button -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>5. Button</h2>
+                <button class="ui-button" onclick="alert('You clicked the button!')">Click me</button>
+            </div>
+            <div class="description">
+                Buttons are interactive elements that trigger an action when clicked. They can submit forms, display
+                alerts, or play music.
+            </div>
+        </div>
+
+        <!-- 6. Text label -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>6. Text Label</h2>
+                <label for="email">Enter your email:</label>
+                <input type="email" id="email" placeholder="example@gmail.com">
+            </div>
+            <div class="description">
+                Labels provide descriptive text for other elements, such as input fields. They clarify what kind of
+                information the user should enter.
+            </div>
+        </div>
+
+        <!-- 7. Link -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>7. Link</h2>
+                <a href="https://www.youtube.com/watch?v=LIqeDVeWeHY&ab_channel">Listen to the song</a>
+            </div>
+            <div class="description">
+                Links allow navigation to another webpage or resource. They are essential for accessing related pages
+                or external references.
+            </div>
+        </div>
+
+        <!-- 8. Tooltip -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>8. Tooltip</h2>
+                <p>
+                    Hover over the word
+                    <span class="tooltip">here
+                        <span class="tooltip-text">This is an example tooltip providing extra information!</span>
+                    </span>
+                </p>
+            </div>
+            <div class="description">
+                Tooltips provide additional information when a user hovers over an element, helping explain terms
+                without cluttering the page.
+            </div>
+        </div>
+
+        <!-- 9. Dropdown list -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>9. Dropdown List</h2>
+                <label for="instrument">Choose a musical instrument:</label>
+                <select id="instrument">
+                    <option value="guitar">Guitar</option>
+                    <option value="piano">Piano</option>
+                    <option value="saxophone">Saxophone</option>
+                </select>
+            </div>
+            <div class="description">
+                Dropdown lists allow selection of one option from multiple choices, saving space and keeping the
+                interface organized.
+            </div>
+        </div>
+
+        <!-- 10. Data grid -->
+        <div class="section-wrapper">
+            <div class="section">
+                <h2>10. Data Grid (Table)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Genre</th>
+                            <th>Tempo</th>
+                            <th>Main Instruments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rock</td>
+                            <td>Fast</td>
+                            <td>Guitar, drums</td>
+                        </tr>
+                        <tr>
+                            <td>Jazz</td>
+                            <td>Medium</td>
+                            <td>Saxophone, trumpet</td>
+                        </tr>
+                        <tr>
+                            <td>Classical</td>
+                            <td>Varied</td>
+                            <td>Violin, piano</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="description">
+                A data grid displays structured information in rows and columns. Users can easily compare music
+                genres, tempo, and instruments.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Tabs functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
